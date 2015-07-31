@@ -14,6 +14,7 @@ var paths = {
   scripts: ['client/app/**/*.js'],
   html: ['client/app/**/*.html', 'client/index.html'],
   styles: ['client/styles/style.css'],
+  // test: ['specs/linksControllerSpecs.js']
   test: ['specs/**/*.js']
 };
 

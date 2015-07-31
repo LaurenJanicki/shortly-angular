@@ -25,7 +25,8 @@ module.exports = function(config) {
 
       // our spec files
       'node_modules/expect.js/index.js',
-      'specs/client/**/*.js'
+      'specs/client/routingSpecs.js'
+      // 'specs/client/**/*.js'
     ],
 
 
@@ -45,7 +46,7 @@ module.exports = function(config) {
     // test results reporter to use
     // possible values: 'dots', 'progress'
     // available reporters: https://npmjs.org/browse/keyword/karma-reporter
-    reporters: ['nyan','unicorn'],
+    reporters: ['nyan','progress'],
 
 
     // web server port
