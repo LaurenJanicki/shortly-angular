@@ -2,7 +2,7 @@ angular.module('shortly.links', [])
 
 .controller('LinksController', function ($scope, Links) {
   // Your code here
-  $scope.data = {};
+  $scope.data = [];
   $scope.getLinks = Links.getLinks;
   
   console.log('---------> HI DAVE AND LAUREN!!!!');
@@ -11,5 +11,8 @@ angular.module('shortly.links', [])
   //    //return [{},{},{}];
   // }
 
-  $scope.getLinks();
+  $scope.getLinks(function(data) {
+    $scope.data.links = data;
+    console.log("data is: ", data);
+  });
 });

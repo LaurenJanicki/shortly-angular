@@ -2,15 +2,21 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
 
-var getLinks = function() {
-  return $http.get('/').
-    success(function(data, status) {
-      console.log('-----------> SUCCESS!!!!! services line 7');
-      return data;
-    }).
-    error(function(data, status) {
-      console.log('-----------> ERRRRRRROR!!!!! services line 10');
-    })
+var getLinks = function(callback) {
+  return $http.get('/api/links')
+    .success(function(response) {
+      // console.log('-------> SERVICES DATA ', JSON.stringify(response))
+      callback(response);
+    });
+
+    // success(function(data, status) {
+    //   console.log('-----------> SUCCESS!!!!! services line 7');
+    //   //callback(data);
+    //   callback(data);
+    // }).
+    // error(function(data, status) {
+    //   console.log('-----------> ERRRRRRROR!!!!! services line 10');
+    // })
   };
 
 
