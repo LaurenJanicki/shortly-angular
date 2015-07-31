@@ -1,7 +1,35 @@
 angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
+
+var getLinks = function() {
+  return $http.get('/').
+    success(function(data, status) {
+      console.log('-----------> SUCCESS!!!!! services line 7');
+      return data;
+    }).
+    error(function(data, status) {
+      console.log('-----------> ERRRRRRROR!!!!! services line 10');
+    })
+  };
+
+
   // Your code here
+  //   $scope.getLinks = function () {
+  //   return $http({
+  //     method: 'GET',
+  //     url: '/'
+  //   })
+  //   .then(function (resp) {
+  //     return resp;
+  //   });
+
+  // };
+  // return "HELLO!";
+return {
+    getLinks: getLinks,
+  };
+
 })
 .factory('Auth', function ($http, $location, $window) {
   // Don't touch this Auth service!!!
