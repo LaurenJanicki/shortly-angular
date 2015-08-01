@@ -6,7 +6,7 @@
     <li><a ng-href="#/shorten">Shorten</a></li>
   </ul>
 </nav>
-<div class="link" ng-repeat="link in data.links">
+<div class="link" ng-repeat="link in data.links" ng-click="visitLink($index.code)">
   <span class="title">{{link.title}}</span> 
   <span class="original">{{link.url}}</span> 
   <span class="visits count">{{link.visits}}</span>

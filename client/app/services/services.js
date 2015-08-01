@@ -2,29 +2,37 @@ angular.module('shortly.services', [])
 
 .factory('Links', function ($http) {
 
-var getLinks = function(callback) {
-  return $http.get('/api/links')
-    .success(function(response) {
-      callback(response);
+  var getLinks = function(callback) {
+    return $http.get('/api/links')
+      .success(function(response) {
+        callback(response);
+      });
+    };
+
+  var postLink = function(url, callback) {
+    return $http({
+      method: 'POST',
+      url: '/api/links',
+      data: url
+    })
+    .then(function(response) {
+        // TODO: Put ability to add links to database here!
+        console.log('SUCCESS! SORT OF... ', url);
+      })
+  }
+  var visitLink = function(shortCode){
+    return $http.get('/:' + shortCode)
+      .success(function() {
+        console.log('HOORAY!');
     });
   };
 
-var postLink = function(url, callback) {
-  return $http({
-    method: 'POST',
-    url: '/api/links',
-    data: url
-  })
-  .then(function(response) {
-      // TODO: Put ability to add links to database here!
-      console.log('SUCCESS! SORT OF... ', url);
-    })
-}
+  return {
+      getLinks: getLinks,
+      postLink: postLink,
+      visitLink: visitLink
+    };
 
-return {
-    getLinks: getLinks,
-    postLink: postLink
-  };
 
 })
 .factory('Auth', function ($http, $location, $window) {
