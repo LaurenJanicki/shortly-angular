@@ -10,9 +10,14 @@ var getLinks = function(callback) {
   };
 
 var postLink = function(url, callback) {
-  return $http.post('/api/links')
-    .success(function(response) {
+  return $http({
+    method: 'POST',
+    url: '/api/links',
+    data: url
+  })
+  .then(function(response) {
       // TODO: Put ability to add links to database here!
+      console.log('SUCCESS! SORT OF... ', url);
     })
 }
 

@@ -1,3 +1,16 @@
-<div id='container'>
+<div id='container' ng-controller="LinksController">
   <!-- Your html here -->
+  <nav class="navigation">
+  <ul>
+    <li><a ng-href="#/links">Links</a></li>
+    <li><a ng-href="#/shorten">Shorten</a></li>
+  </ul>
+</nav>
+<div class="link" ng-repeat="link in data.links">
+  <span class="title">{{link.title}}</span> 
+  <span class="original">{{link.url}}</span> 
+  <span class="visits count">{{link.visits}}</span>
+  <span class="visits">VISITS</span>
+</div>
+
 </div>

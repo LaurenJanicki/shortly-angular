@@ -1,15 +1,15 @@
-<div id='container'>
+<div id='container' ng-controller="ShortenController">
 <!-- Your code here -->
 <nav class="navigation">
   <ul>
-    <li><a href="#">Links</a></li>
-    <li><a href="#">Shorten</a></li>
+    <li><a ng-href="#/links">Links</a></li>
+    <li><a ng-href="#/shorten">Shorten</a></li>
   </ul>
 </nav>
 
 <form method="post">
-  <input type="url"/>
-  <button>SUBMIT!</button>
+  <input type="url" ng-model="newLink"/>
+  <button ng-click="addLink(newLink)">SUBMIT!</button>
 </form>
 </div>
 
