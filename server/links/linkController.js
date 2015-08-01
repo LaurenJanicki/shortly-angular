@@ -77,6 +77,7 @@ module.exports = {
     link.save(function (err, savedLink) {
       if (err) {
         console.log('nav error', err);
+        res.redirect('/links');
         next(err);
       } else {
         console.log('redirecting to ', savedLink.url);

@@ -7,10 +7,14 @@
   </ul>
 </nav>
 
-<form method="post">
-  <input type="url" ng-model="newLink"/>
-  <button ng-click="addLink(newLink)">SUBMIT!</button>
+<form name="shortLink" ng-submit="invalidUrl(newLink)" novalidate>
+  <input type="url" ng-model="newLink" ng-required="true" />
+  <button ng-click="addLink(newLink)" ng-disabled="shortLink.$invalid">SUBMIT!</button>
 </form>
+
+<div class="error" ng-show="shortLink.$invalid && shortLink.$dirty">
+<p>ERROR: Invalid URL</p>
+</div>
 </div>
 
 
