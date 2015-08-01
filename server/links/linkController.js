@@ -76,9 +76,11 @@ module.exports = {
     link.visits++;
     link.save(function (err, savedLink) {
       if (err) {
+        console.log('nav error', err);
         next(err);
       } else {
-        res.redirect(savedLink.url);
+        console.log('redirecting to ', savedLink.url);
+        res.send(200, savedLink.url);
       }
     });
   }

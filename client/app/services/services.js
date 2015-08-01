@@ -16,15 +16,23 @@ angular.module('shortly.services', [])
       data: url
     })
     .then(function(response) {
-        // TODO: Put ability to add links to database here!
-        console.log('SUCCESS! SORT OF... ', url);
+        console.log('Link added! ', url);
       })
   }
   var visitLink = function(shortCode){
-    return $http.get('/:' + shortCode)
-      .success(function() {
+    return $http.get('/api/links/' + shortCode)
+      .success(function(data) {
         console.log('HOORAY!');
-    });
+        console.log(data);
+        window.location.href = data;
+    })
+      .error(function(data, status, headers, config) {
+        console.log('Sad Panda...');
+        console.log(data);
+        console.log(status);
+        console.log(headers);
+
+      });
   };
 
   return {
