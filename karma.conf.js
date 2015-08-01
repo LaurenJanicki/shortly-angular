@@ -25,7 +25,7 @@ module.exports = function(config) {
 
       // our spec files
       'node_modules/expect.js/index.js',
-      'specs/client/routingSpecs.js'
+      'specs/client/shortenControllerSpec.js'
       // 'specs/client/**/*.js'
     ],
 

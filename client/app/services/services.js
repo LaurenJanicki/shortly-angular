@@ -5,35 +5,20 @@ angular.module('shortly.services', [])
 var getLinks = function(callback) {
   return $http.get('/api/links')
     .success(function(response) {
-      // console.log('-------> SERVICES DATA ', JSON.stringify(response))
       callback(response);
     });
-
-    // success(function(data, status) {
-    //   console.log('-----------> SUCCESS!!!!! services line 7');
-    //   //callback(data);
-    //   callback(data);
-    // }).
-    // error(function(data, status) {
-    //   console.log('-----------> ERRRRRRROR!!!!! services line 10');
-    // })
   };
 
+var postLink = function(url, callback) {
+  return $http.post('/api/links')
+    .success(function(response) {
+      // TODO: Put ability to add links to database here!
+    })
+}
 
-  // Your code here
-  //   $scope.getLinks = function () {
-  //   return $http({
-  //     method: 'GET',
-  //     url: '/'
-  //   })
-  //   .then(function (resp) {
-  //     return resp;
-  //   });
-
-  // };
-  // return "HELLO!";
 return {
     getLinks: getLinks,
+    postLink: postLink
   };
 
 })
