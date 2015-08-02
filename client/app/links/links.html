@@ -6,7 +6,12 @@
     <li><a ng-href="#/shorten">Shorten</a></li>
   </ul>
 </nav>
-<div class="link" ng-repeat="link in data.links" ng-click="visitLink(link.code)">
+<div>
+<form>
+  <label>Search:</label><input id="search" ng-model="searchLinks" size="40" type="search" placeholder="Search for links..." /></label>
+</form>
+</div>
+<div class="link" ng-repeat="link in data.links | filter:searchLinks | orderBy: '-visits'" ng-click="visitLink(link.code)">
   <span class="title">{{link.title}}</span> 
   <span class="original">{{link.url}}</span> 
   <span class="visits count">{{link.visits}}</span>
